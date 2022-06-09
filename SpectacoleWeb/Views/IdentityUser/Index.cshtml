@@ -1,0 +1,60 @@
+﻿@model SpectacoleWeb.Models.MyViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Users</h1>
+    @if (@Model.Users!=null && @Model.Users.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            @foreach(var user in Model.Users)
+            {
+               <tbody>
+                <tr>
+                    <th scope="row">@user.Id</th>
+                    <td>@user.Name</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                </tr>
+                
+            </tbody> 
+            }
+        </table>
+    }
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Roles</h1>
+    @if (@Model.Roles!=null && @Model.Roles.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Role ID</th>
+                </tr>
+            </thead>
+            @foreach(var role in Model.Roles)
+            {
+               <tbody>
+                <tr>
+                    <th scope="row">@role.UserId</th>
+                    <td>@role.RoleId</td>
+                </tr>
+                
+            </tbody> 
+            }
+        </table>
+    }
+</div>
